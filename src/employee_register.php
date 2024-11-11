@@ -1,8 +1,58 @@
+<?php
+    include "models/registration.php";
+    include "session.php";
+
+    $errors = [];
+
+    if(isset($_SESSION['id'])) {
+        header("Location: account");
+    }
+
+    if(isset($_POST['submit'])) {
+        if(!$_POST['name']) {
+            $errors[] = "Name is required.";
+        }
+        if(!$_POST['email']) {
+            $errors[] = "Email is required.";
+        }
+        if(!$_POST['password']) {
+            $errors[] = "Password is required.";
+        }
+        if($_POST['password'] != $_POST['confirm_password']) {
+            $errors[] = "You must confirm your password.";
+        }
+        if(empty($errors)) {
+            if(!check_existing_email($_POST['email'])) {
+                $user_type = 'user';
+                $user = save_registration($_POST['name'],$_POST['email'], $_POST['password']);
+                if(!empty($user)) {
+                    $_SESSION['id'] = $user['id'];
+                    $_SESSION['name'] = $user['name'];
+
+                    header("Location: /employee/account");
+                } else {
+                    $errors[] = "There was an error logging in your account.";
+                }
+            } else {
+                $errors[] = "Email address already exist.";
+            }
+        }
+    } else {
+        $_POST = [
+            'name' => '',
+            'password' => '',
+            'email' => ''
+        ];
+    }
+?>
 <?php include "layouts/_header.php"; ?>
     <?php include "layouts/_navigation.php"; ?>
     <main class="content">
         <section id="signup" class="container">
             <div id="signup-form">
+                <?php if (!empty($errors)) { ?>
+                    <?php include "layouts/_errors.php" ?>
+                <?php } ?>
                 <div class="form card">
                     <h1>Sign up to your account.</h1>
                     <form  method="post">

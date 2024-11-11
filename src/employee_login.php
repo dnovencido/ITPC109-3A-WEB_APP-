@@ -1,3 +1,38 @@
+<?php 
+    include "models/login.php";
+    include "session.php";
+
+    $errors = []; 
+
+    if(isset($_SESSION['id'])) {
+        header("Location: /employee/account");
+    }
+
+    if(isset($_POST['submit'])) {
+        if(!$_POST['email']) {
+            $errors[] = "Email is required.";
+        }
+        if(!$_POST['password']) {
+            $errors[] = "Password is required.";
+        }
+        if(empty($errors)) {
+            $user = login_account($_POST['email'], $_POST['password']);
+            if(!empty($user)) {
+                $_SESSION['id'] = $user['id'];
+                $_SESSION['name'] = $user['name'];
+
+                header("Location: account");
+            } else {    
+                $errors[] = "The email that you've entered does not match any account.";
+            }
+        }
+    } else {
+        $_POST = [
+            'email' => '',
+            'password' => '',
+        ];
+    }
+?>
 <?php include "layouts/_header.php"; ?>
     <?php include "layouts/_navigation.php"; ?>
     <main class="content">
