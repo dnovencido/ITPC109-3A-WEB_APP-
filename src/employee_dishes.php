@@ -61,6 +61,7 @@
                                 <th>Thumbnail</th>
                                 <th>Name</th>
                                 <th>Price</th>
+                                <th>By</th>
                                 <th>Last Updated</th>
                                 <th>Date Created</th>
                                 <th>Actions</th>
@@ -77,6 +78,7 @@
                                         </td>
                                         <td><?= $row['dish'] ?></td>
                                         <td>$<?= number_format($row['price'], 2, '.', ',') ?></td>
+                                        <td><?= $row['created_by'] ?></td>
                                         <td><?= !empty($row['updated_at']) ? date('M d, Y @ h:i a', strtotime($row['updated_at'])) : '-' ?></td>
                                         <td><?= date('M d, Y @ h:i a', strtotime($row['created_at'])) ?></td>
                                         <td class="action-buttons">
