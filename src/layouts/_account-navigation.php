@@ -6,10 +6,10 @@
         <div class="account-item-menu">
             <ul>
                 <li>
-                    <a href="/employee/dishes">Dishes</a>
+                    <a href="/employee/dishes"><i class="fa-solid fa-bowl-food"></i> Dishes</a>
                 </li>
                 <li>
-                    <a href="/my-blogs">Orders</a>
+                    <a href="/my-blogs"><i class="fa-solid fa-clipboard"></i> Orders</a>
                 </li>
             </ul>
         </div>

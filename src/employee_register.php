@@ -18,12 +18,13 @@
         if(!$_POST['password']) {
             $errors[] = "Password is required.";
         }
+
         if($_POST['password'] != $_POST['confirm_password']) {
             $errors[] = "You must confirm your password.";
         }
+        
         if(empty($errors)) {
             if(!check_existing_email($_POST['email'])) {
-                $user_type = 'user';
                 $user = save_registration($_POST['name'],$_POST['email'], $_POST['password']);
                 if(!empty($user)) {
                     $_SESSION['id'] = $user['id'];
@@ -55,17 +56,17 @@
                 <?php } ?>
                 <div class="form card">
                     <h1>Sign up to your account.</h1>
-                    <form  method="post">
+                    <form method="post">
                         <div class="input-control">
                             <label for="name">Name: </label>
                             <input type="text" name="name" class="input-field input-md" value="<?= $_POST['name'] ?>" />
                         </div>
                         <div class="input-control">
-                            <label for="name">Email: </label>
+                            <label for="email">Email: </label>
                             <input type="email" name="email" class="input-field input-md" value="<?= $_POST['email'] ?>" />
                         </div>
                         <div class="input-control">
-                            <label for="name">Password: </label>
+                            <label for="password">Password: </label>
                             <input type="password" name="password" class="input-field input-md" value="<?= $_POST['password'] ?>" />
                         </div>
                         <div class="input-control">

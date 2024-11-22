@@ -62,5 +62,6 @@
             </div>
         </footer>
         <script src="/assets/js/dropdown.js"></script>
+        <script src="/assets/js/dish.js"></script>
     </body>
 </html>

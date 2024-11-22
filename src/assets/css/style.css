@@ -522,7 +522,7 @@ footer {
 }
 
 .input-xs {
-    padding: 0.4rem 0.8rem;
+    padding: 0.5rem 0.8rem;
 }
 
 .input-field:focus {
@@ -621,7 +621,6 @@ label {
 }
 
 .account-item {
-    font-size: 0.6rem;
     padding: 0.5rem 0;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -639,8 +638,9 @@ label {
 }
 
 .account-item-menu ul > li {
-    margin: 0 0 1rem;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #FFFFFF;
 }
 
 .account-item-menu ul > li a.active {
@@ -727,4 +727,46 @@ td.action-buttons a:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+
+#pagination ul {
+    margin: 1rem 0;
+    padding: 0;
+}
+
+#pagination ul > li {
+    display: inline-block;
+}
+
+#pagination ul a {
+    border: 1px solid var(--primary);
+    border-radius: 20px;
+    display: block;
+    margin: auto;
+    font-size: 0.7rem;
+    padding: 0.3rem 1.2rem;
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+}
+
+#pagination a.active {
+    background-color:  var(--primary);
+    color: #FFFFFF;
+}
+
+#pagination li.disabled {
+    pointer-events: none;
+}
+
+#form-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--separator);
+}
+
+#search-field {
+    width: 250px;
 }

@@ -1,11 +1,11 @@
 <?php 
-    include "models/login.php";
-    include "session.php";
+    include "./models/login.php";
+    include "./session.php";
 
     $errors = []; 
 
     if(isset($_SESSION['id'])) {
-        header("Location: /employee/account");
+        header("Location: account");
     }
 
     if(isset($_POST['submit'])) {
@@ -43,7 +43,7 @@
                 <?php } ?>
                 <div class="form card">
                     <h1>Log in to your account.</h1>
-                    <form method="post">
+                    <form  method="post">
                         <div class="input-control">
                             <label for="name">Email: </label>
                             <input type="email" name="email" class="input-field input-md" value="<?= $_POST['email'] ?>" />
