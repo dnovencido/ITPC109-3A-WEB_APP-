@@ -88,7 +88,7 @@
                                     </tr>
                                 <?php } ?>
                             <?php } else { ?>
-                                <td colspan="6">No dishes to be displayed...</td>
+                                <td colspan="7">No dishes to be displayed...</td>
                             <?php } ?>
                         </tbody>
                     </table>  
